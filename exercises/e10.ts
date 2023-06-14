@@ -1,8 +1,16 @@
 // SPACE DATA EXERCISE 10
 // Return a given asteroid object of data
+
+import { Asteroid } from "../data/data";
+
 // make sure that you destructure your parameters
-export function getAsteroidDataByName(obj : { allData : {asteroids : []}, asteroidName : string }) {
-    return obj.allData.asteroids.find((asteroid : {name : string}) => asteroid.name === obj.asteroidName);
+export function getAsteroidDataByName(obj: {
+  allData: { asteroids: Asteroid[] };
+  asteroidName: string;
+}) {
+  return obj.allData.asteroids.find(
+    (asteroid) => asteroid.name === obj.asteroidName
+  );
 }
 
 // === TEST YOURSELF ===

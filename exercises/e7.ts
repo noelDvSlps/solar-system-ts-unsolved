@@ -1,8 +1,16 @@
 // SPACE DATA EXERCISE 7
+
+import { Planet } from "../data/data";
+
 // Return an array of all Planets names that have moons
-export function getPlanetsWithMoons(planets : []) : {} {
-    return (planets.filter((planet : {moons : []}) =>  {if ("moons" in planet) {return planet.moons.length > 0;}}))
-    .map((planet : {name : string}) => planet.name);
+export function getPlanetsWithMoons(planets: Planet[]) {
+  return planets
+    .filter((planet) => {
+      if (planet.moons) {
+        return planet.moons.length > 0;
+      }
+    })
+    .map(({ name }) => name);
 }
 
 // === TEST YOURSELF ===

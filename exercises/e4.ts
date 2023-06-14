@@ -2,8 +2,10 @@
 // Return an array of Planets' names with gravity less than 10
 // Return example: ['name1', 'name2', ... , 'nameN']
 
-export function getPlanetNamesWithLowGravity(planets : []) : {} {
-    return (planets.filter((planet : {gravity : number}) => planet.gravity < 10)).map((planet : {name : string}) => planet.name);
+import { Planet } from "../data/data";
+
+export function getPlanetNamesWithLowGravity(planets: Planet[]) {
+  return planets.filter(({ gravity }) => gravity < 10).map(({ name }) => name);
 }
 
 // === TEST YOURSELF ===

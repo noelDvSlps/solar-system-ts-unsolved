@@ -1,11 +1,17 @@
 // SPACE DATA EXERCISE 8
 // Return a Planet by a given moon name
+
+import { Planet } from "../data/data";
+
 //  must have destructured parameters
-export function findPlanetByMoon(data: { planets: []; moonName: string }) {
-  return data.planets.find((planet: { moons: string[]; name: string }) => {
-    if (planet?.moons) {
+export function findPlanetByMoon(data: {
+  planets: Planet[];
+  moonName: string;
+}) {
+  return data.planets.find((planet) => {
+    if (planet.moons) {
       if (
-        planet.moons.filter((moon: string) => {
+        planet.moons.filter((moon) => {
           return moon.toLowerCase() === data.moonName.toLowerCase();
         }).length > 0
       ) {

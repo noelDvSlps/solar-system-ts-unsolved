@@ -1,9 +1,11 @@
 // SPACE DATA EXERCISE 15
 // Return an array of Planets' without moons
 
-export function getPlanetsWithNoMoons(planets: []) {
-  return planets.filter((planet: { moons: string[] }) => {
-    if (!planet?.moons) {
+import { Planet } from "../data/data";
+
+export function getPlanetsWithNoMoons(planets: Planet[]) {
+  return planets.filter((planet) => {
+    if (!planet.moons) {
       return planet;
     }
   });

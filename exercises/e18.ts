@@ -3,19 +3,21 @@
 // Return example: 1902
 // Hint: use a Map data structure instead of an object if you want typescript to be happy
 
-export function getGreatestDiscoveryYear(asteroids = []) {
+import { Asteroid } from "../data/data";
+
+export function getGreatestDiscoveryYear(asteroids: Asteroid[]) {
   const myDataStructure = asteroids.reduce(
     (
       acc: [input1: number, input2: number, input3: { [key: string]: string }],
-      asteroid: { discoveryYear: number; name: string }
+      { discoveryYear, name }
     ) => {
-      const discoveryYear = asteroid.discoveryYear;
+      // const discoveryYear = asteroid.discoveryYear;
       acc[2].hasOwnProperty(discoveryYear)
         ? (acc[2] = {
             ...acc[2],
-            [discoveryYear]: [...(acc[2][discoveryYear] || []), asteroid.name],
+            [discoveryYear]: [...(acc[2][discoveryYear] || []), name],
           })
-        : (acc[2] = { ...acc[2], [discoveryYear]: [asteroid.name] });
+        : (acc[2] = { ...acc[2], [discoveryYear]: [name] });
       let lengthObj: number | undefined = acc[2][discoveryYear]?.length;
 
       acc =
