@@ -1,13 +1,12 @@
-export const minBy = (array: any[], cb: (input: any) => number) => {
+export const minBy = <T>(array: T[], cb: (input: T) => number | string) => {
   const result = array.reduce(
-    (acc, element) => (cb(element) < cb(acc) ? element : acc),
+    (acc, element) => (cb(element) < cb(acc ? acc : element) ? element : acc),
     array[0]
   );
-  console.log("result", result);
   return result;
 };
 
-export function maxBy<T>(array: T[], cb: (input: T) => number) {
+export function maxBy<T>(array: T[], cb: (input: T) => number | string) {
   const result = array.reduce(
     (acc, element) => (cb(element) > cb(acc ? acc : element) ? element : acc),
     array[0]
